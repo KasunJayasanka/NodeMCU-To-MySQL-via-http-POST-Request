@@ -5,14 +5,14 @@ session_start();
 <?php
 $api_key_value = "tPmAT5Ab3j7F9";
 
-$api_key= $sensor = $location = $value1 = $value2 = $value3 = "";
+$apiKey= $sensor = $location = $sensorValue = $value2 = $value3 = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $api_key = test_input($_POST["api_key"]);
-    if($api_key == $api_key_value) {
-        $sensor = test_input($_POST["sensor"]);
+    $api_key = test_input($_POST["apiKey"]);
+    if($apiKey == $api_key_value) {
+        $sensor = test_input($_POST["sensorValue"]);
        
-        $_SESSION['data'] = $sensor;
+        $_SESSION['data'] = $sensorValue;
         
         // Create connection
         include 'inc/connection.php';
@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . $conn->connect_error);
         } 
         
-        $sql = "INSERT INTO SensorData (sensor)
-        VALUES ('" . $sensor . "')";
+        $sql = "INSERT INTO nodemcu_table (sensorValue)
+        VALUES ('" . $sensorValue . "')";
         
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
