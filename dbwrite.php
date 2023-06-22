@@ -20,18 +20,17 @@ $response = ['success' => false, 'massage' => 'Internal server error' ];
 $responseCode = 500; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {    
-    // get request header in order to get api key
-    $header = apache_request_headers();
+    
+    // get input json payload
+    $json = file_get_contents('php://input');
+    $json = json_decode($json, true);
 
     // get api key
-    $apiKey = $header['X-API-KEY'] ?? null; // shorthand operator IF X-API-KEY exist in header assing X-API-KEY value ELSE assign null
+    $apiKey = $json['X-API-KEY'] ?? null; // shorthand operator IF X-API-KEY exist in header assing X-API-KEY value ELSE assign null
 
 
     if($apiKey == $api_key_value) {
         
-        // get input json payload
-        $json = file_get_contents('php://input');
-        $json = json_decode($json, true);
 
         // var_dump($json); return;
 
@@ -45,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // prepare sql connection
             // ref -> https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+
             $stmt = $conn->prepare("INSERT INTO nodemcu_table (sensorValue1,sensorValue2,sensorValue3,sensorValue4) VALUES (?,?,?,?);");
 
             // get values form pay load
