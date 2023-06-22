@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
     }
     else {
-        echo "Wrong API Key provided.";
+        echo $apiKey."Wrong API Key provided.";
     }
 
 }
