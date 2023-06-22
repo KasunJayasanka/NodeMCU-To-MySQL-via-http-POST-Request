@@ -77,7 +77,7 @@
             while($row = $result->fetch_assoc()) { //fetch_assoc fetches a row from the result of our query iteratively for every row in our result.
                 //Returning HTML from the server to show on the webpage.
                 echo '<div class="container">';
-                echo '<h2>NodeMCU Data Logging</h2>';
+                echo '<p>NodeMCU Data Logging</p>';
                                                   
                 echo '<p>';
                 echo '   <span class="dht-labels">sensorValue1 = </span>';
