@@ -9,7 +9,7 @@ $apiKey= $sensor = $location = $sensorValue = $value2 = $value3 = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $api_key = test_input($_POST["apiKey"]);
-    if($apiKey==$api_key_value) {
+    if($apiKey==$api_key_value){
         $sensorValue = test_input($_POST["sensorValue"]);
        
         $_SESSION['data'] = $sensorValue;
