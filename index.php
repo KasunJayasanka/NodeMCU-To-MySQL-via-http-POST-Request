@@ -58,10 +58,10 @@
 </head>
 <body>
     <?php
-        $host = "eu-cdbr-west-03.cleardb.net";  // host = localhost because database hosted on the same server where PHP files are hosted
-        $dbname = "heroku_cc37febd15469e6";  // Database name
-        $username = "bc198622e1365c";  // Database username
-        $password = "f0e73a72"; // Database password
+        $host = "us-cdbr-east-06.cleardb.net";  // host = localhost because database hosted on the same server where PHP files are hosted
+        $dbname = "heroku_91913d6493aa24f";  // Database name
+        $username = "b80abf109fcbe7";  // Database username
+        $password = "61bad5ce"; // Database password
         // Establish connection to MySQL database
         $conn = new mysqli($host, $username, $password, $dbname);
         // Check if connection established successfully
@@ -79,8 +79,8 @@
                 echo '<h1>NodeMCU Data Logging</h1>';
                                                   
                 echo '<p>';
-                echo '   <span class="dht-labels">sensorValue1 = </span>';
-                echo '   <span id="temperature">'.$row["sensorValue1"].' &#8451</span>';
+                echo '   <span class="dht-labels">sensorValue = </span>';
+                echo '   <span id="temperature">'.$row["sensorValue"].'</span>';
                 echo ' </p>';
                                                                                      
                 echo '</div>';
